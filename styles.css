@@ -38,7 +38,7 @@ select {
   box-sizing: border-box;
 }
 
-button[type="submit"] {
+button {
   margin: 0 auto;
   width: 50%;
   background-color: #1c5b7c;
@@ -49,12 +49,12 @@ button[type="submit"] {
   cursor: pointer;
 }
 
-button[type="submit"]:disabled {
+button:disabled {
   background-color: #4f6e80;
   cursor: not-allowed;
 }
 
-button[type="submit"]:hover:enabled {
+button:hover:enabled {
   background-color: #0c4563;
 }
 
@@ -98,4 +98,10 @@ p {
   border-width: 10px;
 
   border-style: solid;
+}
+
+@media screen and (max-width: 320px) {
+  .container {
+    width: 320px;
+  }
 }

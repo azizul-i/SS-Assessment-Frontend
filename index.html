@@ -38,12 +38,7 @@
           <label for="CitizenStatus">Citizen Status:</label> <br />
           <input type="text" id="CitizenStatus" name="CitizenStatus" /><br />
           <label for="StartDate">Employment Start Date:</label> <br />
-          <input
-            type="datetime-local"
-            id="StartDate"
-            value="2020-01-01T12:01"
-            name="StartDate"
-          /><br />
+          <input type="datetime-local" id="StartDate" name="StartDate" /><br />
           <label for="EmploymentType">Employment Type:</label> <br />
           <input type="text" id="EmploymentType" name="EmploymentType" /><br />
           <label for="PositionTitle">Position Title:</label> <br />
@@ -106,9 +101,15 @@
           },
           body: JSON.stringify(EmployeeDataObj),
         }
-      );
-      alert("Employee Added!");
-      console.log("Response: ", await response.json());
+      )
+        .then((res) => {
+          return res.json();
+        })
+        .then((result) => {
+          console.log("Response: ", result);
+          localStorage.setItem("Id", result["formID"]);
+          window.location.href = "/summary.html";
+        });
     };
   </script>
 </html>
