@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- index.html -->
+    <link rel="Pen icon" href="images/Pen-logo.ico" type="image/x-icon" />
+    <title>Add Employee (SecuredSigning)</title>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+    <h1>New Employee Details</h1>
+    <form
+      action="https://azizul-i.github.io"
+      method="post"
+      id="AddEmployeeForm"
+    >
+      <label for="FirstName">First name:</label><br />
+      <input type="text" id="FirstName" name="FirstName" /><br />
+      <label for="LastName">Last name:</label><br />
+      <input type="text" id="LastName" name="LastName" /><br />
+      <label for="FullAddress">Full Address:</label> <br />
+      <input type="text" id="FullAddress" name="FullAddress" /><br />
+      <label for="NewMailingAddress">Mailing Address :</label> <br />
+      <input type="text" id="NewMailingAddress" name="NewMailingAddress" />
+      <input
+        type="checkbox"
+        id="AsAbove"
+        name="MailingAddress"
+        value="AsAbove"
+      />
+      <label for="male">As Above</label><br />
+      <label for="EmailAddress">Email Address:</label> <br />
+      <input type="text" id="EmailAddress" name="EmailAddress" /><br />
+      <label for="PhoneNumber">Phone Number:</label> <br />
+      <input type="text" id="PhoneNumber" name="PhoneNumber" /><br />
+      <label for="CitizenStatus">Citizen Status:</label> <br />
+      <input type="text" id="CitizenStatus" name="CitizenStatus" /><br />
+      <label for="StartDate">Employment Start Date:</label> <br />
+      <input type="date" id="StartDate" name="StartDate" /><br />
+      <label for="EmploymentType">Employment Type:</label> <br />
+      <input type="text" id="EmploymentType" name="EmploymentType" /><br />
+      <label for="PositionTitle">Position Title:</label> <br />
+      <input type="text" id="PositionTitle" name="PositionTitle" /><br />
+
+      <h2>Emergency Contact Person:</h2>
+      <label for="EmergencyName">Name:</label> <br />
+      <input type="text" id="EmergencyName" name="EmergencyName" /><br />
+      <label for="Relationship">Relationship:</label> <br />
+      <input type="text" id="Relationship" name="Relationship" /><br />
+      <label for="EmergencyNumber">Phone No:</label> <br />
+      <input type="text" id="EmergencyNumber" name="EmergencyNumber" /><br />
+    </form>
+    <br />
+    <button type="submit" form="AddEmployeeForm" value="Submit">
+      +Add New Employee
+    </button>
+  </body>
+</html>
