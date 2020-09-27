@@ -1,0 +1,101 @@
+input[type="text"],
+select {
+  width: 100%;
+  padding: 10px 20px;
+  margin: 10px 0;
+  /* display: inline-block; */
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.nameFields {
+  display: flex;
+  margin-bottom: 20px;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.error {
+  color: red;
+  padding: 4px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: space-around;
+}
+
+input[type="datetime-local"],
+select {
+  width: 100%;
+  padding: 5px 5px;
+  margin: 8px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+button[type="submit"] {
+  margin: 0 auto;
+  width: 50%;
+  background-color: #1c5b7c;
+  color: white;
+  padding: 14px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button[type="submit"]:disabled {
+  background-color: #4f6e80;
+  cursor: not-allowed;
+}
+
+button[type="submit"]:hover:enabled {
+  background-color: #0c4563;
+}
+
+h1 {
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #1c5b7c;
+  padding: 5px;
+}
+
+h2 {
+  text-align: center;
+  font-style: italic;
+  color: #ff5723;
+  /* justify-self: flex-start; */
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+p {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.employeeDetails {
+  width: 75%;
+  margin: 0 auto;
+  background-color: aliceblue;
+  border-color: #1c5b7c;
+  border-radius: 10px;
+  border-width: 10px;
+  align-content: center;
+  border-style: solid;
+}
+
+.emergencyDetails {
+  margin: 0 auto;
+  width: 75%;
+  align-content: center;
+  background-color: rgb(255, 252, 240);
+  border-color: #ff5723;
+  border-radius: 10px;
+  border-width: 10px;
+
+  border-style: solid;
+}

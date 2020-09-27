@@ -3,55 +3,112 @@
   <head>
     <!-- index.html -->
     <link rel="Pen icon" href="images/Pen-logo.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="styles.css" />
     <title>Add Employee (SecuredSigning)</title>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   </head>
   <body>
-    <h1>New Employee Details</h1>
-    <form
-      action="https://azizul-i.github.io"
-      method="post"
-      id="AddEmployeeForm"
-    >
-      <label for="FirstName">First name:</label><br />
-      <input type="text" id="FirstName" name="FirstName" /><br />
-      <label for="LastName">Last name:</label><br />
-      <input type="text" id="LastName" name="LastName" /><br />
-      <label for="FullAddress">Full Address:</label> <br />
-      <input type="text" id="FullAddress" name="FullAddress" /><br />
-      <label for="NewMailingAddress">Mailing Address :</label> <br />
-      <input type="text" id="NewMailingAddress" name="NewMailingAddress" />
-      <input
-        type="checkbox"
-        id="AsAbove"
-        name="MailingAddress"
-        value="AsAbove"
-      />
-      <label for="male">As Above</label><br />
-      <label for="EmailAddress">Email Address:</label> <br />
-      <input type="text" id="EmailAddress" name="EmailAddress" /><br />
-      <label for="PhoneNumber">Phone Number:</label> <br />
-      <input type="text" id="PhoneNumber" name="PhoneNumber" /><br />
-      <label for="CitizenStatus">Citizen Status:</label> <br />
-      <input type="text" id="CitizenStatus" name="CitizenStatus" /><br />
-      <label for="StartDate">Employment Start Date:</label> <br />
-      <input type="date" id="StartDate" name="StartDate" /><br />
-      <label for="EmploymentType">Employment Type:</label> <br />
-      <input type="text" id="EmploymentType" name="EmploymentType" /><br />
-      <label for="PositionTitle">Position Title:</label> <br />
-      <input type="text" id="PositionTitle" name="PositionTitle" /><br />
+    <div class="container">
+      <h1>NEW EMPLOYEE DETAILS</h1>
+      <form action="#" method="post" id="AddEmployeeForm">
+        <!-- <div class="nameFields"> -->
+        <div class="employeeDetails">
+          <label for="FirstName">First Name: </label><br />
+          <input type="text" id="FirstName" name="FirstName" /><br />
 
-      <h2>Emergency Contact Person:</h2>
-      <label for="EmergencyName">Name:</label> <br />
-      <input type="text" id="EmergencyName" name="EmergencyName" /><br />
-      <label for="Relationship">Relationship:</label> <br />
-      <input type="text" id="Relationship" name="Relationship" /><br />
-      <label for="EmergencyNumber">Phone No:</label> <br />
-      <input type="text" id="EmergencyNumber" name="EmergencyNumber" /><br />
-    </form>
-    <br />
-    <button type="submit" form="AddEmployeeForm" value="Submit">
-      +Add New Employee
-    </button>
+          <label for="LastName">Last Name:</label><br />
+          <input type="text" id="LastName" name="LastName" /> <br />
+          <!-- </div> -->
+          <label for="FullAddress">Full Address:</label> <br />
+          <input type="text" id="FullAddress" name="FullAddress" /><br />
+          <label for="NewMailingAddress">Mailing Address :</label> <br />
+          <input type="text" id="NewMailingAddress" name="NewMailingAddress" />
+          <input
+            type="checkbox"
+            id="AsAbove"
+            name="AsAbove"
+            value="SameAsAddress"
+          />
+          <label for="AsAbove">As Above</label><br />
+          <label for="EmailAddress">Email Address:</label> <br />
+          <input type="text" id="EmailAddress" name="EmailAddress" /><br />
+          <label for="PhoneNumber">Phone Number:</label> <br />
+          <input type="text" id="PhoneNumber" name="PhoneNumber" /><br />
+          <label for="CitizenStatus">Citizen Status:</label> <br />
+          <input type="text" id="CitizenStatus" name="CitizenStatus" /><br />
+          <label for="StartDate">Employment Start Date:</label> <br />
+          <input
+            type="datetime-local"
+            id="StartDate"
+            value="2020-01-01T12:01"
+            name="StartDate"
+          /><br />
+          <label for="EmploymentType">Employment Type:</label> <br />
+          <input type="text" id="EmploymentType" name="EmploymentType" /><br />
+          <label for="PositionTitle">Position Title:</label> <br />
+          <input type="text" id="PositionTitle" name="PositionTitle" /><br />
+        </div>
+        <h2>Emergency Contact Person:</h2>
+        <div class="emergencyDetails">
+          <label for="EmergencyName">Name:</label> <br />
+          <input type="text" id="EmergencyName" name="EmergencyName" /><br />
+          <label for="EmergencyRelationship">Relationship:</label> <br />
+          <input
+            type="text"
+            id="EmergencyRelationship"
+            name="EmergencyRelationship"
+          /><br />
+          <label for="EmergencyNumber">Phone No:</label> <br />
+          <input
+            type="text"
+            id="EmergencyNumber"
+            name="EmergencyNumber"
+          /><br />
+        </div>
+      </form>
+      <br />
+      <button
+        type="submit"
+        id="submit"
+        form="AddEmployeeForm"
+        value="Add New Employee"
+      >
+        Click to Add Employee!
+      </button>
+    </div>
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-1.9.0.min.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.19.2/jquery.validate.min.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.19.2/additional-methods.min.js"></script>
+    <script src="validation.js"></script>
   </body>
+
+  <!-- Send FormData as JSON to C# backend service -->
+  <script>
+    AddEmployeeForm.onsubmit = async (event) => {
+      event.preventDefault();
+      let newEmployeeData = new FormData(AddEmployeeForm);
+      let EmployeeDataObj = Object.fromEntries(newEmployeeData);
+      EmployeeDataObj.isMailingSameAsFullAddress = false;
+
+      if (newEmployeeData.get("AsAbove") === "SameAsAddress") {
+        newEmployeeData.set("SameAsFullAddress", true);
+        EmployeeDataObj.isMailingSameAsFullAddress = true;
+      }
+
+      console.log("FormData ", EmployeeDataObj);
+      const response = await fetch(
+        "https://addemployeess.azurewebsites.net/api/Employees",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(EmployeeDataObj),
+        }
+      );
+      alert("Employee Added!");
+      console.log("Response: ", await response.json());
+    };
+  </script>
 </html>
