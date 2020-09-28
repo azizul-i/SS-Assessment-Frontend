@@ -73,6 +73,11 @@ h2 {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+#employeeData {
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+}
+
 p {
   font-family: Arial, Helvetica, sans-serif;
 }

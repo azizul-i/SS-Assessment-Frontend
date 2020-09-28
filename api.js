@@ -8,14 +8,14 @@ const getEmployeeData = async () => {
         "Content-Type": "application/json",
       },
     }
-  )
-    .then((res) => {
-      return res.json();
-    })
-    .then((result) => {
-      const finalRes = result;
-      console.log("Response: ", result);
-    });
-
-  return response;
+  );
+  // .then((res) => {
+  //   return res.json();
+  // })
+  // .then((result) => {
+  //   const finalRes = result;
+  //   console.log("Response: ", result);
+  // });
+  const result = await response.json();
+  return result;
 };

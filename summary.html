@@ -12,7 +12,12 @@
     <div class="container">
       <h1>Employee was successfully added!</h1>
       <h2>Options</h2>
-      <button id="viewDetails">View Submitted Employee Details</button>
+
+      <button id="viewDetails">
+        View Submitted Employee Details (Summary)
+      </button>
+      <br />
+      <div id="employeeData"></div>
       <br />
       <button id="addMore">
         Add More Employee Details! (Return to Main Form)
@@ -30,7 +35,31 @@
     };
 
     document.getElementById("viewDetails").onclick = async () => {
-      console.log("GetEmployeeData: ", await getEmployeeData());
+      let result = await getEmployeeData();
+      document.getElementById("employeeData").innerHTML =
+        "<div>" +
+        "FormID: " +
+        result["formID"] +
+        "</br>" +
+        "Full Name: " +
+        result["firstName"] +
+        " " +
+        result["lastName"] +
+        "</br>" +
+        "Full Address: " +
+        result["fullAddress"] +
+        "</br>" +
+        "Email: " +
+        result["emailAddress"] +
+        "</br>" +
+        "Number: " +
+        result["phoneNumber"] +
+        "</br>" +
+        "Position: " +
+        result["positionTitle"] +
+        "</br>" +
+        "</div>";
+      console.log("GetEmployeeData: ", result);
     };
   </script>
 </html>

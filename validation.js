@@ -100,7 +100,7 @@ $(function () {
         required: "Please enter employee's citizenship status",
       },
       StartDate: {
-        required: "Please enter employee's starting date (within last year)",
+        required: "Please enter employee's starting date",
       },
       EmploymentType: {
         required: "Please enter the type of employment",
