@@ -11,6 +11,9 @@
   <body>
     <div class="container">
       <h1>Employee was successfully added!</h1>
+      <h2>Options</h2>
+      <button id="viewDetails">View Submitted Employee Details</button>
+      <br />
       <button id="addMore">
         Add More Employee Details! (Return to Main Form)
       </button>
@@ -18,12 +21,16 @@
     <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-1.9.0.min.js"></script>
     <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.19.2/jquery.validate.min.js"></script>
     <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.19.2/additional-methods.min.js"></script>
-    <script src="validation.js"></script>
+    <script src="api.js"></script>
   </body>
 
   <script>
     document.getElementById("addMore").onclick = () => {
       window.location.href = "/";
+    };
+
+    document.getElementById("viewDetails").onclick = async () => {
+      console.log("GetEmployeeData: ", await getEmployeeData());
     };
   </script>
 </html>
